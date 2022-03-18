@@ -84,6 +84,30 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/mydemo',
+    component: Layout,
+    redirect: '/mydemo/demo1',
+    meta: {
+      title: 'demo',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'demo1',
+        component: () => import('@/views/mydemo/demo1/demo1'),
+        name: 'demo1',
+        meta: { title: 'demo1' }
+      },
+      {
+        path: 'demo2',
+        component: () => import('@/views/mydemo/demo2/demo2'),
+        name: 'demo2',
+        meta: { title: 'demo2' }
+      }
+    ]
+  },
+  {
     path: '/documentation',
     component: Layout,
     children: [
